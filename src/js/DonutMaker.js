@@ -4,7 +4,7 @@ class DonutMaker {
         this._donutCount = 0;
         this._autoClickerCount = 0;
         this._autoClickerCost = 100;
-        this._donutMultiplierCount = 0;
+        this._donutMultiplier = 0;
         this._donutMultiplierCost = 10;
 
     }
@@ -20,8 +20,8 @@ class DonutMaker {
         return this._autoClickerCost;
     }
 
-    get donutMultiplierCount() {
-        return this._donutMultiplierCount;
+    get donutMultiplier() {
+        return this._donutMultiplier;
     }
 
     get donutMultiplierCost() {
@@ -29,42 +29,31 @@ class DonutMaker {
     }
 
     recordClick() {
-        this._donutCount++;
+        this._donutCount += Math.pow(1.2, this._donutMultiplier);
     }
 
     addAutoClicker() {
-        if (this._donutCount <= this._autoClickerCost) {
-            this._autoClickerCount;
+        if (this._donutCount >= this._autoClickerCost) {
+            this._donutCount -= this._autoClickerCost;
+            this._autoClickerCount++;
+
+            this._autoClickerCost = Math.round((this._autoClickerCost * 1.1));
         }
-        this._autoClickerCount++;
-
-        if (this._autoClickerCount >= 2) {
-            this._autoClickerCost = Math.round((this._autoClickerCost * 1.1))
+        if (this._autoClickerCount <= 1) {
+            this.activateAutoClickers();
         }
-
-        this._donutCount -= this._autoClickerCost;
-
     }
     activateAutoClickers() {
-        this.recordClick() * this._autoClickerCount;
+
+        this._donutCount += this._autoClickerCount * (Math.pow(1.2, this._donutMultiplier));
     }
 
     addDonutMultiplier() {
-        if (this._donutCount <= this._donutMultiplierCost) {
-            this._donutMultiplierCount;
+        if (this._donutCount >= this._donutMultiplierCost) {
+            this._donutCount -= this._donutMultiplierCost;
+            this._donutMultiplier++;
+
+            this._donutMultiplierCost = this._donutMultiplierCost * 1.1;
         }
-        this._donutMultiplierCount++;
-
-        if (this._donutMultiplierCount >= 2) {
-            this._donutMultiplierCost = (this._donutMultiplierCost * 1.1);
-        }
-
-        this._donutCount -= this._donutMultiplierCost;
-
     }
-    donutMultiplier() {
-        Math.pow(1.2, this._donutMultiplierCount) * this.recordClick();
-    }
-
-
 }
