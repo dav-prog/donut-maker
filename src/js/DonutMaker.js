@@ -1,11 +1,11 @@
-export 
+export { DonutMaker };
 
 class DonutMaker {
 
     constructor() {
         this._donutCount = 0;
         this._autoClickerCount = 0;
-        this._autoClickerCost = 100;
+        this._autoClickerCost = 10;
         this._donutMultiplier = 0;
         this._donutMultiplierCost = 10;
 
@@ -39,15 +39,20 @@ class DonutMaker {
             this._donutCount -= this._autoClickerCost;
             this._autoClickerCount++;
 
-            this._autoClickerCost = Math.round((this._autoClickerCost * 1.1));
-        }
-        if (this._autoClickerCount <= 1) {
-            this.activateAutoClickers();
+            this._autoClickerCost += this._autoClickerCost * 0.1;
+
+            if (this._autoClickerCount <= 1) {
+                this.activateAutoClickers();
+            }
         }
     }
     activateAutoClickers() {
 
-        this._donutCount += this._autoClickerCount * (Math.pow(1.2, this._donutMultiplier));
+        setInterval(() => {
+            console.log("help")
+            this._donutCount += this._autoClickerCount * Math.pow(1.2, this._donutMultiplier);
+        }, 1000);
+
     }
 
     addDonutMultiplier() {
