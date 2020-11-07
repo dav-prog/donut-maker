@@ -51,6 +51,7 @@ const updateMultiplierCount = function () {
 
 const donutMultiplier = document.querySelector('.purchase_donut_mulitipliers');
 donutMultiplier.addEventListener('click', () => {
+    donutMultiplier.innerText = `Purchase Multiplier for ${Math.round(donutMaker.donutMultiplierCost * 100) / 100} Donuts!`
     donutMaker.addDonutMultiplier();
     updateMultiplierCount();
     updateDonutCount();
