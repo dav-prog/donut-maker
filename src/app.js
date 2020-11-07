@@ -8,13 +8,18 @@ const updateDonutCount = function () {
     checkAutoClickerButton();
     checkDonutMultiplierButton();
 }
-//donut Maker
+//click button
 const clicks = document.querySelector('.add__donut');
+
 clicks.addEventListener('click', () => {
+    updateClickButtonDisplay();
     donutMaker.recordClick();
     updateDonutCount();
-
+   
 })
+function updateClickButtonDisplay() {
+    clicks.innerText = `Click for ${Math.round(multiplierValue() * 100) / 100} Donuts!`;
+}
 
 //autoclickers
 const updateAutoClickerCount = function () {
@@ -24,11 +29,10 @@ const updateAutoClickerCount = function () {
 
 const autoClickers = document.querySelector('.purchase__auto_clickers');
 autoClickers.addEventListener('click', () => {
+    autoClickers.innerText = `Purchase Auto Clickers for ${Math.round(donutMaker.autoClickerCost * 100)/100} Donuts!`
     donutMaker.addAutoClicker();
     updateAutoClickerCount();
     updateDonutCount();
-    checkAutoClickerButton();
-    checkDonutMultiplierButton();
 })
 
 function checkAutoClickerButton() {
@@ -38,8 +42,6 @@ function checkAutoClickerButton() {
         autoClickers.disabled = true;
     }
 }
-
-
 
 //donut multipliers
 const updateMultiplierCount = function () {
@@ -52,8 +54,7 @@ donutMultiplier.addEventListener('click', () => {
     donutMaker.addDonutMultiplier();
     updateMultiplierCount();
     updateDonutCount();
-    checkAutoClickerButton();
-    checkDonutMultiplierButton();
+    updateClickButtonDisplay();
 })
 function checkDonutMultiplierButton() {
     if (donutMaker.donutCount >= donutMaker.donutMultiplierCost) {
@@ -61,5 +62,8 @@ function checkDonutMultiplierButton() {
     } else {
         donutMultiplier.disabled = true;
     }
+}
+function multiplierValue() {
+    return Math.pow(1.2, donutMaker.donutMultiplier);
 }
 

@@ -38,8 +38,7 @@ class DonutMaker {
         if (this._donutCount >= this._autoClickerCost) {
             this._donutCount -= this._autoClickerCost;
             this._autoClickerCount++;
-
-            this._autoClickerCost += this._autoClickerCost * 0.1;
+            this._autoClickerCost = this._autoClickerCost * 1.1;
 
             if (this._autoClickerCount <= 1) {
                 this.activateAutoClickers();
