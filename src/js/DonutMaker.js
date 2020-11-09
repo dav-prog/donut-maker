@@ -49,7 +49,6 @@ class DonutMaker {
     activateAutoClickers() {
 
         setInterval(() => {
-            console.log("help")
             this._donutCount += this._autoClickerCount * Math.pow(1.2, this._donutMultiplier);
         }, 1000);
     }
@@ -62,4 +61,6 @@ class DonutMaker {
             this._donutMultiplierCost = this._donutMultiplierCost * 1.1;
         }
     }
+
+  
 }
