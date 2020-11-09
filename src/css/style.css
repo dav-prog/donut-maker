@@ -4,9 +4,15 @@
     padding: 0;
 }
 
+.title {
+    margin: 10px;
+    text-align: center;
+}
+
 .container {
+    margin-top: 20px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto auto;
     gap: 30px 20px;
     text-align: center;
@@ -14,6 +20,13 @@
 
 .click {
     grid-area: 1 / 2 / 3 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add__donut:hover {
+    transform: scale(1.25, 1.25);
 }
 
 .donut_count {
@@ -22,14 +35,20 @@
 
 .auto__clickers {
     grid-column: 1 / 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 .donut__multipliers {
     grid-column: 3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 .reset {
-    grid-column: 1 / 4;
+    grid-column: 2;
 }
 
 .menu {
@@ -76,9 +95,17 @@ ul {
     padding: 20px;
     border: 1px solid #888;
     width: 60%;
-    /* Could be more or less, depending on screen size */
     animation-name: animate;
     animation-duration: 0.8s;
+}
+
+@keyframes animate {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .close {
@@ -105,13 +132,4 @@ a {
 .dropdown:hover .dropdown-content {
     display: block;
     background-color: #ddd
-}
-
-@keyframes animate {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }

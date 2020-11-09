@@ -13,7 +13,7 @@ const updateDonutCount = function() {
     //click button
 const clicks = document.querySelector('.add__donut');
 for (var b = 0; b < clicks.length; b++) {
-    clicks[b].firstChild.src = "src\img\choco-donut.png";
+    clicks.src = "src\img\choco-donut.png";
 }
 
 clicks.addEventListener('click', () => {
