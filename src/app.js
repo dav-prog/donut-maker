@@ -12,6 +12,9 @@ const updateDonutCount = function() {
     }
     //click button
 const clicks = document.querySelector('.add__donut');
+for (var b = 0; b < clicks.length; b++) {
+    clicks[b].firstChild.src = "src\img\choco-donut.png";
+}
 
 clicks.addEventListener('click', () => {
     updateClickButtonDisplay();
@@ -21,6 +24,7 @@ clicks.addEventListener('click', () => {
 })
 
 function updateClickButtonDisplay() {
+
     clicks.innerText = `Click for ${Math.round(multiplierValue() * 100) / 100} Donuts!`;
 }
 
@@ -72,6 +76,7 @@ function checkDonutMultiplierButton() {
 function multiplierValue() {
     return Math.pow(1.2, donutMaker.donutMultiplier);
 }
+//modal
 
 var modal = document.getElementById("myModal");
 
