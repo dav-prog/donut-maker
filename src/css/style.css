@@ -13,20 +13,27 @@
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto auto;
+    grid-template-rows: repeat(5, auto);
     gap: 30px 20px;
     text-align: center;
 }
 
 .click {
-    grid-area: 1 / 2 / 3 / 3;
+    grid-area: 3 / 2 / 4 / 3;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
 }
 
 .add__donut:hover {
     transform: scale(1.25, 1.25);
+}
+
+#donut-button {
+    width: 275px;
+    height: 150px;
+    outline: none;
 }
 
 .donut_count {
@@ -35,20 +42,21 @@
 
 .auto__clickers {
     grid-column: 1 / 2;
-    grid-row: 2;
+    grid-row: 4;
     display: flex;
     flex-direction: column;
 }
 
 .donut__multipliers {
     grid-column: 3;
-    grid-row: 2;
+    grid-row: 4;
     display: flex;
     flex-direction: column;
 }
 
 .reset {
     grid-column: 2;
+    grid-row: 5;
 }
 
 .menu {

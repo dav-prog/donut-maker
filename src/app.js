@@ -5,7 +5,7 @@ const donutMaker = new DonutMaker();
 const updateDonutCount = function() {
         const donuts = document.querySelector('.donut_count');
         setInterval(() => {
-            donuts.innerText = Math.round(donutMaker.donutCount * 100) / 100;
+            donuts.innerText = `${Math.round(donutMaker.donutCount * 100) / 100} Donuts! `;
             checkAutoClickerButton();
             checkDonutMultiplierButton();
         }, 1);
@@ -24,8 +24,8 @@ clicks.addEventListener('click', () => {
 })
 
 function updateClickButtonDisplay() {
-
-    clicks.innerText = `Click for ${Math.round(multiplierValue() * 100) / 100} Donuts!`;
+    const donutClicks = document.querySelector('.donut__clicks');
+    donutClicks.innerText = `Click for ${Math.round(multiplierValue() * 100) / 100} Donuts!`;
 }
 
 //autoclickers
