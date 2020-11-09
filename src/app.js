@@ -2,15 +2,15 @@ import { DonutMaker } from "/src/js/DonutMaker.js";
 
 const donutMaker = new DonutMaker();
 
-const updateDonutCount = function () {
-    const donuts = document.querySelector('.donut_count');
-    setInterval(() => {
-        donuts.innerText = Math.round(donutMaker.donutCount * 100) / 100;
-        checkAutoClickerButton();
-        checkDonutMultiplierButton();
-    }, 1);
-}
-//click button
+const updateDonutCount = function() {
+        const donuts = document.querySelector('.donut_count');
+        setInterval(() => {
+            donuts.innerText = Math.round(donutMaker.donutCount * 100) / 100;
+            checkAutoClickerButton();
+            checkDonutMultiplierButton();
+        }, 1);
+    }
+    //click button
 const clicks = document.querySelector('.add__donut');
 
 clicks.addEventListener('click', () => {
@@ -19,12 +19,13 @@ clicks.addEventListener('click', () => {
     updateDonutCount();
 
 })
+
 function updateClickButtonDisplay() {
     clicks.innerText = `Click for ${Math.round(multiplierValue() * 100) / 100} Donuts!`;
 }
 
 //autoclickers
-const updateAutoClickerCount = function () {
+const updateAutoClickerCount = function() {
     const autoClickerCount = document.querySelector('.auto_clicker_count');
     autoClickerCount.innerText = donutMaker.autoClickerCount;
 }
@@ -46,7 +47,7 @@ function checkAutoClickerButton() {
 }
 
 //donut multipliers
-const updateMultiplierCount = function () {
+const updateMultiplierCount = function() {
     const multiplierCount = document.querySelector('.donut_multiplier_count');
     multiplierCount.innerText = donutMaker.donutMultiplier;
 }
@@ -59,6 +60,7 @@ donutMultiplier.addEventListener('click', () => {
     updateDonutCount();
     updateClickButtonDisplay();
 })
+
 function checkDonutMultiplierButton() {
     if (donutMaker.donutCount >= donutMaker.donutMultiplierCost) {
         donutMultiplier.disabled = false;
@@ -66,7 +68,26 @@ function checkDonutMultiplierButton() {
         donutMultiplier.disabled = true;
     }
 }
+
 function multiplierValue() {
     return Math.pow(1.2, donutMaker.donutMultiplier);
 }
 
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("modalBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

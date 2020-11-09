@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src\css\style.css">
     <title>Donut Maker</title>
 </head>
 <header>
-<nav class="header">
-    <ul>
-        <li><a href="#">Company Info</a></li>
-    </ul>
-    <ul>
-        <li><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener noreferrer">Cookie Clicker</a></li>
-    </ul>
-    <ul>
-        <li><a href="#">Bio</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">GitHub</a></li>
-    </ul>
-</nav>
+    <div class="menu">
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Company Info</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener noreferrer">Cookie Clicker</a></li>
+            </ul>
+            <ul class="dropdown">
+                <li id="modalBtn" class="dropdown"><a href="#">Bio</a></li>
+                <div id="myModal" class="modal">
+
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <li><a href="https://github.com/dav-prog" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://dav-prog.github.io/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+                    </div>
+                </div>
+            </ul>
+
+        </nav>
+    </div>
 
 </header>
+
 <body>
     <div class="container">
         <div class="anchor"></div>
-<main >
-<section class="click">
-    <button class="add__donut"> Click for a Donut!</button>
-    <span class="donut_count">0</span>
-</section>
+        <main>
+            <section class="click">
+                <button class="add__donut"> Click for a Donut!</button>
+                <span class="donut_count">0</span>
+            </section>
 
-<section class="auto__clickers">
-    <button class="purchase__auto_clickers">Purchase Auto Clickers</button>
-    <span class="auto_clicker_count">0</span>
-</section>
+            <section class="auto__clickers">
+                <button class="purchase__auto_clickers">Purchase Auto Clickers</button>
+                <span class="auto_clicker_count">0</span>
+            </section>
 
-<section class="donut__multipliers">
-<button class="purchase_donut_mulitipliers">Purchase Donut Mulitpliers</button>
-<span class="donut_multiplier_count">0</span>
-</section>
+            <section class="donut__multipliers">
+                <button class="purchase_donut_mulitipliers">Purchase Donut Mulitpliers</button>
+                <span class="donut_multiplier_count">0</span>
+            </section>
 
-<section class="reset">
-    <button class="reset__button" onClick="history.go(0);">reset game</button>
-</section>
-
-
+            <section class="reset">
+                <button class="reset__button" onClick="history.go(0);">reset game</button>
+            </section>
 
 
-</main>
+
+
+        </main>
     </div>
     <script src="/src/app.js" type="module"></script>
 </body>
+
 </html>

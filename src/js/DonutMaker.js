@@ -45,7 +45,7 @@ class DonutMaker {
             }
         }
     }
-    
+
     activateAutoClickers() {
 
         setInterval(() => {
@@ -62,5 +62,5 @@ class DonutMaker {
         }
     }
 
-  
+
 }
